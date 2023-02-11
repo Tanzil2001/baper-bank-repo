@@ -3,6 +3,13 @@ document.getElementById('btn-diposit').addEventListener('click', function(){
     const newDipositString = dipositFild.value;
     const newDiposit = parseFloat(newDipositString);
 
+    dipositFild.value = '';
+
+    if(isNaN(newDiposit)){
+        alert('please provide a valid number');
+        return;
+    }
+
     const dipositAmount = document.getElementById('diposit-amount');
     const priviousAmountString =dipositAmount.innerText;
     const priviousAmount = parseFloat(priviousAmountString);
@@ -17,5 +24,5 @@ document.getElementById('btn-diposit').addEventListener('click', function(){
     const currentBalanceTotal = balanceTotal + newDiposit;
     getBalanceTotal.innerText = currentBalanceTotal;
 
-    dipositFild.value = '';
+    
 })
